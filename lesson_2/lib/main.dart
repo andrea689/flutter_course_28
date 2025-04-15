@@ -69,8 +69,8 @@ class HomePage extends StatelessWidget {
           ),
           Row(
             children: [
-              Icon(Icons.holiday_village),
-              Expanded(
+              const Icon(Icons.holiday_village),
+              const Expanded(
                 flex: 1,
                 child: Text(
                   'Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello',
@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Expanded(
+              const Expanded(
                 flex: 2,
                 child: Text(
                   'World World World World World World World World World World World',
