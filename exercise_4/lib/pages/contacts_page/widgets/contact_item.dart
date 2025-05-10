@@ -1,7 +1,7 @@
 import 'package:exercise_4/pages/contacts_page/widgets/contact_image.dart';
 import 'package:exercise_4/pages/contacts_page/cubits/contacts_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:exercise_4/model/contact.dart';
+import 'package:exercise_4/models/contact.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContactItem extends StatelessWidget {

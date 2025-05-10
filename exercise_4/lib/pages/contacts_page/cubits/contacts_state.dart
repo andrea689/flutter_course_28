@@ -1,4 +1,4 @@
-import 'package:exercise_4/model/contact.dart';
+import 'package:exercise_4/models/contact.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'contacts_state.freezed.dart';
