@@ -1,17 +1,21 @@
-class Contact {
-  final int id;
-  final String name;
-  final String imageUrl;
-  final int number;
-  final String address;
-  final DateTime birthday;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  const Contact({
-    required this.id,
-    required this.name,
-    required this.imageUrl,
-    required this.number,
-    required this.address,
-    required this.birthday,
-  });
+part 'contact.freezed.dart';
+part 'contact.g.dart';
+
+@freezed
+abstract class Contact with _$Contact {
+  const Contact._();
+
+  const factory Contact({
+    @JsonKey(name: 'objectId') String? id,
+    required String name,
+    required String imageUrl,
+    @JsonKey(name: 'phone_number') required int number,
+    required String address,
+    required DateTime birthday,
+  }) = _Contact;
+
+  factory Contact.fromJson(Map<String, dynamic> json) =>
+      _$ContactFromJson(json);
 }

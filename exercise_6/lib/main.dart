@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ContactsCubit(),
+      create: (context) => ContactsCubit()..getContacts(),
       child: const MaterialApp(home: ContactsPage()),
     );
   }

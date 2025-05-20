@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ContactsState {
 
- List<Contact> get contacts; bool get isAscending;
+ List<Contact> get contacts; bool get isAscending; bool get isLoading; bool get hasError;
 /// Create a copy of ContactsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,16 +26,16 @@ $ContactsStateCopyWith<ContactsState> get copyWith => _$ContactsStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactsState&&const DeepCollectionEquality().equals(other.contacts, contacts)&&(identical(other.isAscending, isAscending) || other.isAscending == isAscending));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ContactsState&&const DeepCollectionEquality().equals(other.contacts, contacts)&&(identical(other.isAscending, isAscending) || other.isAscending == isAscending)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.hasError, hasError) || other.hasError == hasError));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(contacts),isAscending);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(contacts),isAscending,isLoading,hasError);
 
 @override
 String toString() {
-  return 'ContactsState(contacts: $contacts, isAscending: $isAscending)';
+  return 'ContactsState(contacts: $contacts, isAscending: $isAscending, isLoading: $isLoading, hasError: $hasError)';
 }
 
 
@@ -46,7 +46,7 @@ abstract mixin class $ContactsStateCopyWith<$Res>  {
   factory $ContactsStateCopyWith(ContactsState value, $Res Function(ContactsState) _then) = _$ContactsStateCopyWithImpl;
 @useResult
 $Res call({
- List<Contact> contacts, bool isAscending
+ List<Contact> contacts, bool isAscending, bool isLoading, bool hasError
 });
 
 
@@ -63,10 +63,12 @@ class _$ContactsStateCopyWithImpl<$Res>
 
 /// Create a copy of ContactsState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? contacts = null,Object? isAscending = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? contacts = null,Object? isAscending = null,Object? isLoading = null,Object? hasError = null,}) {
   return _then(_self.copyWith(
 contacts: null == contacts ? _self.contacts : contacts // ignore: cast_nullable_to_non_nullable
 as List<Contact>,isAscending: null == isAscending ? _self.isAscending : isAscending // ignore: cast_nullable_to_non_nullable
+as bool,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,hasError: null == hasError ? _self.hasError : hasError // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
@@ -78,7 +80,7 @@ as bool,
 
 
 class _ContactsState extends ContactsState {
-  const _ContactsState({final  List<Contact> contacts = const [], this.isAscending = false}): _contacts = contacts,super._();
+  const _ContactsState({final  List<Contact> contacts = const [], this.isAscending = false, this.isLoading = false, this.hasError = false}): _contacts = contacts,super._();
   
 
  final  List<Contact> _contacts;
@@ -89,6 +91,8 @@ class _ContactsState extends ContactsState {
 }
 
 @override@JsonKey() final  bool isAscending;
+@override@JsonKey() final  bool isLoading;
+@override@JsonKey() final  bool hasError;
 
 /// Create a copy of ContactsState
 /// with the given fields replaced by the non-null parameter values.
@@ -100,16 +104,16 @@ _$ContactsStateCopyWith<_ContactsState> get copyWith => __$ContactsStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ContactsState&&const DeepCollectionEquality().equals(other._contacts, _contacts)&&(identical(other.isAscending, isAscending) || other.isAscending == isAscending));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ContactsState&&const DeepCollectionEquality().equals(other._contacts, _contacts)&&(identical(other.isAscending, isAscending) || other.isAscending == isAscending)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.hasError, hasError) || other.hasError == hasError));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_contacts),isAscending);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_contacts),isAscending,isLoading,hasError);
 
 @override
 String toString() {
-  return 'ContactsState(contacts: $contacts, isAscending: $isAscending)';
+  return 'ContactsState(contacts: $contacts, isAscending: $isAscending, isLoading: $isLoading, hasError: $hasError)';
 }
 
 
@@ -120,7 +124,7 @@ abstract mixin class _$ContactsStateCopyWith<$Res> implements $ContactsStateCopy
   factory _$ContactsStateCopyWith(_ContactsState value, $Res Function(_ContactsState) _then) = __$ContactsStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<Contact> contacts, bool isAscending
+ List<Contact> contacts, bool isAscending, bool isLoading, bool hasError
 });
 
 
@@ -137,10 +141,12 @@ class __$ContactsStateCopyWithImpl<$Res>
 
 /// Create a copy of ContactsState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? contacts = null,Object? isAscending = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? contacts = null,Object? isAscending = null,Object? isLoading = null,Object? hasError = null,}) {
   return _then(_ContactsState(
 contacts: null == contacts ? _self._contacts : contacts // ignore: cast_nullable_to_non_nullable
 as List<Contact>,isAscending: null == isAscending ? _self.isAscending : isAscending // ignore: cast_nullable_to_non_nullable
+as bool,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,hasError: null == hasError ? _self.hasError : hasError // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }

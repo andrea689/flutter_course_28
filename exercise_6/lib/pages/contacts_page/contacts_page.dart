@@ -1,7 +1,7 @@
 import 'package:exercise_6/pages/contact_upsert_page/contact_upsert_page.dart';
 import 'package:exercise_6/cubits/contacts_cubit.dart';
+import 'package:exercise_6/pages/contacts_page/widgets/contacts_body.dart';
 import 'package:flutter/material.dart';
-import 'package:exercise_6/pages/contacts_page/widgets/contact_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContactsPage extends StatelessWidget {
@@ -18,8 +18,6 @@ class ContactsScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final contacts = context.watch<ContactsCubit>().state.sortedContacts;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contacts'),
@@ -30,12 +28,9 @@ class ContactsScaffold extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.separated(
-        itemCount: contacts.length,
-        itemBuilder: (context, index) => ContactItem(contact: contacts[index]),
-        separatorBuilder: (context, index) => const Divider(),
-      ),
+      body: const ContactsBody(),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'addContact',
         onPressed:
             () => Navigator.of(context).push(
               MaterialPageRoute(

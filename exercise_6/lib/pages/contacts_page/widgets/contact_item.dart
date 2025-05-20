@@ -12,13 +12,18 @@ class ContactItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final contactId = contact.id;
+    if (contactId == null) {
+      throw Exception('Contact id is null');
+    }
+
     return ListTile(
       leading: ContactImage(imageUrl: contact.imageUrl, size: 50),
       title: Text(contact.name),
       onTap:
           () => Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => ContactDetailsPage(contactId: contact.id),
+              builder: (context) => ContactDetailsPage(contactId: contactId),
             ),
           ),
       trailing: IconButton(

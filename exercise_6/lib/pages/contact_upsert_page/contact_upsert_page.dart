@@ -163,7 +163,7 @@ class _ContactUpsertPageState extends State<ContactUpsertPage> {
     final birthday = dateFormat.parse(birthdayController.text);
 
     final contact = Contact(
-      id: widget.contact?.id ?? DateTime.now().millisecondsSinceEpoch,
+      id: widget.contact?.id,
       name: nameController.text,
       birthday: birthday,
       address: addressController.text,

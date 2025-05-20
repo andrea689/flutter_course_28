@@ -10,6 +10,8 @@ abstract class ContactsState with _$ContactsState {
   const factory ContactsState({
     @Default([]) List<Contact> contacts,
     @Default(false) bool isAscending,
+    @Default(false) bool isLoading,
+    @Default(false) bool hasError,
   }) = _ContactsState;
 
   List<Contact> get sortedContacts => List<Contact>.from(contacts)..sort(
@@ -19,5 +21,5 @@ abstract class ContactsState with _$ContactsState {
             : a.name.toLowerCase().compareTo(b.name.toLowerCase()),
   );
 
-  Contact getContactById(int id) => contacts.firstWhere((c) => c.id == id);
+  Contact getContactById(String id) => contacts.firstWhere((c) => c.id == id);
 }

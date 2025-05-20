@@ -6,3 +6,6 @@ linter:
     prefer_single_quotes: true
     prefer_const_constructors: true
     
+analyzer:
+  errors:
+    invalid_annotation_target: ignore

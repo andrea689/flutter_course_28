@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class ContactDetailsPage extends StatelessWidget {
-  final int contactId;
+  final String contactId;
 
   const ContactDetailsPage({super.key, required this.contactId});
 
